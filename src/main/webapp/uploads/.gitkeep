@@ -1,0 +1,3 @@
+# Uploaded event and advertisement images are stored in this folder.
+# The folder itself is kept in version control so that the application can
+# save images immediately after it is deployed.

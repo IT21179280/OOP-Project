@@ -32,7 +32,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5b3cc4">
     <title><%= WebUtil.escape(titleValue) %> | Online Event Planning System</title>
+    <link rel="icon" type="image/png" href="<%= ctxPath %>/images/logo.png">
     <link rel="stylesheet" href="<%= ctxPath %>/css/style.css">
 </head>
 <body>
@@ -51,7 +53,11 @@
             <span class="logo-text">Online Event<br><span class="logo-small">Planning System</span></span>
         </a>
 
-        <nav class="main-nav">
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
+            <span aria-hidden="true">&#9776;</span> Menu
+        </button>
+
+        <nav class="main-nav" id="mainNav">
             <a href="<%= ctxPath %>/home" class="<%= "home".equals(activePage) ? "active" : "" %>">Home</a>
             <a href="<%= ctxPath %>/events" class="<%= "events".equals(activePage) ? "active" : "" %>">Events</a>
             <a href="<%= ctxPath %>/advertisements" class="<%= "advertisements".equals(activePage) ? "active" : "" %>">Advertisements</a>

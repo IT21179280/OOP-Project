@@ -1,0 +1,25 @@
+# Build output
+target/
+build/
+out/
+
+# Uploaded images (keep the folder itself, ignore user files)
+src/main/webapp/uploads/*
+!src/main/webapp/uploads/.gitkeep
+
+# IDE and editor files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+nbproject/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log

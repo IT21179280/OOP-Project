@@ -46,10 +46,10 @@
         <span class="stat-number"><%= totalCategories == null ? 0 : totalCategories %></span>
         <span class="stat-label">Event Categories</span>
     </div>
-    <div class="stat-box">
+    <a class="stat-box" href="<%= ctx %>/admin/messages">
         <span class="stat-number"><%= totalMessages == null ? 0 : totalMessages %></span>
         <span class="stat-label">Contact Messages</span>
-    </div>
+    </a>
 </div>
 
 <div class="dashboard-columns">
@@ -89,6 +89,7 @@
             <li><a href="<%= ctx %>/admin/events">Manage Events</a></li>
             <li><a href="<%= ctx %>/admin/advertisements">Manage Advertisements</a></li>
             <li><a href="<%= ctx %>/admin/categories">Manage Event Categories</a></li>
+            <li><a href="<%= ctx %>/admin/messages">Read Contact Messages</a></li>
             <li><a href="<%= ctx %>/home">Open Public Website</a></li>
             <li><a href="<%= ctx %>/admin/logout">Logout</a></li>
         </ul>

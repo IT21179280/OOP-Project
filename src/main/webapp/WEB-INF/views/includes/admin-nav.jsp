@@ -14,5 +14,7 @@
        class="<%= adminUri.endsWith("/admin/advertisements") ? "active" : "" %>">Advertisements</a>
     <a href="<%= adminCtx %>/admin/categories"
        class="<%= adminUri.endsWith("/admin/categories") ? "active" : "" %>">Categories</a>
+    <a href="<%= adminCtx %>/admin/messages"
+       class="<%= adminUri.endsWith("/admin/messages") ? "active" : "" %>">Messages</a>
     <a href="<%= adminCtx %>/home">View Website</a>
 </div>

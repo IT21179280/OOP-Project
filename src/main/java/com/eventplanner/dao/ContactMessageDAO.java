@@ -41,14 +41,7 @@ public class ContactMessageDAO {
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet result = statement.executeQuery()) {
             while (result.next()) {
-                ContactMessage message = new ContactMessage();
-                message.setMessageId(result.getInt("message_id"));
-                message.setName(result.getString("name"));
-                message.setEmail(result.getString("email"));
-                message.setSubject(result.getString("subject"));
-                message.setMessage(result.getString("message"));
-                message.setCreatedAt(result.getTimestamp("created_at"));
-                messages.add(message);
+                messages.add(mapRow(result));
             }
         }
         return messages;
@@ -61,5 +54,39 @@ public class ContactMessageDAO {
              ResultSet result = statement.executeQuery()) {
             return result.next() ? result.getInt(1) : 0;
         }
+    }
+
+    public boolean delete(int messageId) throws SQLException {
+        String sql = "DELETE FROM contact_messages WHERE message_id = ?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, messageId);
+            return statement.executeUpdate() > 0;
+        }
+    }
+
+    public ContactMessage findById(int messageId) throws SQLException {
+        String sql = "SELECT * FROM contact_messages WHERE message_id = ?";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, messageId);
+            try (ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    return mapRow(result);
+                }
+            }
+        }
+        return null;
+    }
+
+    private ContactMessage mapRow(ResultSet result) throws SQLException {
+        ContactMessage message = new ContactMessage();
+        message.setMessageId(result.getInt("message_id"));
+        message.setName(result.getString("name"));
+        message.setEmail(result.getString("email"));
+        message.setSubject(result.getString("subject"));
+        message.setMessage(result.getString("message"));
+        message.setCreatedAt(result.getTimestamp("created_at"));
+        return message;
     }
 }
